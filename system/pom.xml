@@ -12,6 +12,7 @@
 	<artifactId>system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>syncpower</name>
+	<packaging>jar</packaging>
 	<description>Power Consumption Details</description>
 
 	<properties>
@@ -35,7 +36,13 @@
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-security</artifactId>-->
 <!--		</dependency>-->
-
+		<dependency>
+         <groupId>EasyModbusJava</groupId>
+         <artifactId>EasyModbusJava</artifactId>
+         <scope>system</scope>
+         <version>1.0</version>
+         <systemPath>${basedir}\src\main\resources\lib\EasyModbusJava.jar</systemPath>
+      </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
