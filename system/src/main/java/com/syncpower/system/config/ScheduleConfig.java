@@ -1,20 +1,19 @@
 package com.syncpower.system.config;
 
-import com.syncpower.system.service.CurrentMeterService;
-import com.syncpower.system.util.ReadDeviceData;
+import com.syncpower.system.beans.DeviceConfig;
+import com.syncpower.system.util.ReadCoilStatus;
+import com.syncpower.system.util.ReadInputRegistersData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.scheduling.support.CronTrigger;
-
-import java.time.Instant;
 
 @Configuration
 public class ScheduleConfig {
     @Autowired
-    private ReadDeviceData readDeviceData;
+    private ReadInputRegistersData readDeviceData;
+   
+    @Autowired
+    private ReadCoilStatus readCoilStatus;
 
     /*@Bean
     public TaskScheduler runReadingTask(){
@@ -25,11 +24,17 @@ public class ScheduleConfig {
         System.out.println("Running scheduler!");gger);
         return scheduler;
     }*/
+    
+//    @Scheduled(fixedRate = 12000)
+//    public void scheduleReadCoilTask() {
+//        //logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()) );
+//    	readCoilStatus.run();
+//        //readDeviceData.run();
+//    }
 
     @Scheduled(fixedRate = 10000)
-    public void scheduleTaskWithFixedRate() {
+    public void scheduleReadIRValuesTask() {
         //logger.info("Fixed Rate Task :: Execution Time - {}", dateTimeFormatter.format(LocalDateTime.now()) );
         readDeviceData.run();
-        //readDeviceData.run();
     }
 }

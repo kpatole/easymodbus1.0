@@ -12,11 +12,11 @@ import java.util.Date;
 @Entity
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class CurrentMeterConsumption {
+public class CurrentDeviceConsumption {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY )
-    private int recordId;
-    private  String meterNo;
+    private  Long recordId;
+    private  String deviceNo;
     private  BigDecimal currentReading;
     private  BigDecimal totalEnergyConsumed;
     private  String createdBy;
@@ -25,16 +25,31 @@ public class CurrentMeterConsumption {
     private Date createdDate;
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedDate;
+    
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "active", referencedColumnName = "deviceNo") private
+	 * DeviceStatus meterStatus;
+	 */
 
-    public String getMeterNo() {
-        return meterNo;
-    }
+    public Long getRecordId() {
+		return recordId;
+	}
 
-    public void setMeterNo(String meterNo) {
-        this.meterNo = meterNo;
-    }
+	public void setRecordId(Long recordId) {
+		this.recordId = recordId;
+	}
 
-    public BigDecimal getCurrentReading() {
+	public String getDeviceNo() {
+		return deviceNo;
+	}
+
+	public void setDeviceNo(String deviceNo) {
+		this.deviceNo = deviceNo;
+	}
+
+	public BigDecimal getCurrentReading() {
         return currentReading;
     }
 

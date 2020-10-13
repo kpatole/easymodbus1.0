@@ -1,10 +1,3 @@
-INSERT INTO current_meter_consumption
-( recordId, meterNo, currentReading, totalEnergyConsumed, createdBy, updatedBy, createdDate, updatedDate) VALUES
-(1, 'D1', 1.0,  1.0,   'SYSTEM', 'SYSTEM', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(2, 'D1', 2.0,  3.0,   'SYSTEM', 'SYSTEM', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP), 
-(3, 'D1', 3.0,  6.0,   'SYSTEM', 'SYSTEM', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(4, 'D1', 4.0,  10.0,  'SYSTEM', 'SYSTEM', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-(5, 'D1', 5.0,  15.0,  'SYSTEM', 'SYSTEM', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 INSERT INTO DEVICE_PARAMETERS (paramId, parameter_name, createdBy, updatedBy, created_date, updated_date) VALUES
   (1, 'Total Active Energy in kWh', '1256214', '1256214', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
