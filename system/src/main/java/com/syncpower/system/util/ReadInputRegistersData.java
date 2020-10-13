@@ -37,7 +37,7 @@ public class ReadInputRegistersData extends BaseProducer {
         	});*/
 
 		deviceService.getDeviceConfigs().forEach(device->{
-			//System.out.println(device.getDeviceNo() +" IPADDESS: "+ device.getIpAddress());
+			System.out.println(device.getDeviceNo() +" IPADDESS: "+ device.getIpAddress());
 			try {
 				readInputRegisterValues(device);
 			} catch (IOException | ModbusException e) {
@@ -69,7 +69,7 @@ public class ReadInputRegistersData extends BaseProducer {
 
 	private void persistIRValuesToDb(BigDecimal preciseVal, String deviceName){
 		MathContext mcPrecision = new MathContext(4);
-		BigDecimal previousTotal =  deviceService.getPreviousEnergyConsumed("D1");
+		BigDecimal previousTotal =  deviceService.getPreviousEnergyConsumed(deviceName);
 		BigDecimal currentTotal = previousTotal.add(preciseVal);
 		CurrentDeviceConsumption meterConsumption = new CurrentDeviceConsumption();
 		meterConsumption.setDeviceNo(deviceName);
